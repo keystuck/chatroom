@@ -27,7 +27,7 @@ public class ChatroomApplicationTests {
 		mockMvc.perform(MockMvcRequestBuilders
 		.get("/"))
 				.andExpect(status().isOk())
-		.andExpect(view().name("/login"));
+		.andExpect(view().name("login"));
 	}
 
 	@Test
@@ -35,7 +35,19 @@ public class ChatroomApplicationTests {
 		mockMvc.perform(MockMvcRequestBuilders
 				.get("/chat?username=testuser"))
 				.andExpect(status().isOk())
-				.andExpect(view().name("/chat"));
+				.andExpect(view().name("chat"));
+	}
+
+	@Test
+	public void leaveChat() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders
+		.get("/chat?username=testuser"))
+				.andExpect(status().isOk())
+		.andExpect(view().name("chat"));
+		mockMvc.perform(MockMvcRequestBuilders
+				.get("/"))
+				.andExpect(status().isOk())
+				.andExpect(view().name("login"));
 	}
 
 

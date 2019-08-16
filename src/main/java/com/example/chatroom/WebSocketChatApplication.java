@@ -20,12 +20,12 @@ public class WebSocketChatApplication {
 
 	@RequestMapping("/")
 	public ModelAndView login(){
-		return new ModelAndView("/login");
+		return new ModelAndView("login");
 	}
 
 	@RequestMapping("/chat")
 	public ModelAndView chat(String username, HttpServletRequest request) throws UnknownHostException {
-		return new ModelAndView("/chat");
+		return new ModelAndView("chat");
 	}
 
 }
